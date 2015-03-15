@@ -9,7 +9,7 @@ Loader::Loader(const std::string &file):
   handler = dlopen(file.c_str(), RTLD_LAZY);
   if (!handler)
     {
-      std::cout << "Couldn't open dynamic library: " << file << std::endl;
+      std::cout << "Error: couldn't open dynamic library: " << file << std::endl;
       exit(-1);
     }
 }
@@ -25,7 +25,10 @@ void Loader::callFunc(const std::string &fctName) const
 
   fct = (function)dlsym(handler, fctName.c_str());
   if (!fct)
-    return;
+    {
+      std::cout << "Error: couldn't load function: " << fctName << std::endl;
+      return;
+    }
   fct(15);
   fct(2);
 }
