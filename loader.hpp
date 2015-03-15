@@ -3,8 +3,6 @@
 
 #include <string>
 
-typedef void (*function)(int);
-
 class Loader
 {
   void		*handler;
@@ -14,7 +12,7 @@ public:
   Loader(const std::string &file);
   ~Loader();
 
-  void	callFunc(const std::string &fctName) const;
+  void	initGui();
 };
 
 #endif

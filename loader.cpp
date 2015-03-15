@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "loader.hpp"
+#include "IGui.hpp"
 
 Loader::Loader(const std::string &file):
   fileName(file)
@@ -19,17 +20,14 @@ Loader::~Loader()
   dlclose(handler);
 }
 
-void Loader::callFunc(const std::string &fctName) const
+void Loader::initGui()
 {
-  void	(*fct)(int);
+  IGui	*obj;
+  IGui*	(*creator)();
 
-  fct = (function)dlsym(handler, fctName.c_str());
-  if (!fct)
-    {
-      std::cout << "Error: couldn't load function: " << fctName << std::endl;
-      return;
-    }
-  fct(15);
-  fct(2);
+  creator = reinterpret_cast<IGui* (*)()>(dlsym(handler, "create_gui"));
+  if (creator == NULL)
+    return;
+  obj = creator();
+  obj->sayWassUp();
 }
-

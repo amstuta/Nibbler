@@ -14,6 +14,6 @@ int		main(int ac, char **av)
   libName = "./";
   libName += av[3];
   Loader l(libName);
-  l.callFunc("write_nbr");
+  l.initGui();
   return (0);
 }
