@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:40:29 2015 arthur
-// Last update Tue Mar 17 18:40:30 2015 arthur
+// Last update Tue Mar 17 18:52:16 2015 arthur
 //
 
 #include <dlfcn.h>
@@ -30,7 +30,7 @@ Loader::~Loader()
   dlclose(handler);
 }
 
-IGui	*Loader::initGui()
+IGui	*Loader::getGui()
 {
   IGui	*obj;
   IGui*	(*creator)();

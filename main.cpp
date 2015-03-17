@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:40:41 2015 arthur
-// Last update Tue Mar 17 18:40:42 2015 arthur
+// Last update Tue Mar 17 18:52:24 2015 arthur
 //
 
 #include <iostream>
@@ -38,8 +38,8 @@ int		main(int ac, char **av)
   libName = "./";
   libName += av[3];
   Loader l(libName);
-  gui = l.initGui();
-  gui->sayWassUp();
+  gui = l.getGui();
+  gui->initGui();
 
   trySnake();
   

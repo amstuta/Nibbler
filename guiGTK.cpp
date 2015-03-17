@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:39:50 2015 arthur
-// Last update Tue Mar 17 18:39:51 2015 arthur
+// Last update Tue Mar 17 18:50:17 2015 arthur
 //
 
 #include <iostream>
@@ -20,7 +20,7 @@ GuiGTK::~GuiGTK()
 {
 }
 
-void GuiGTK::sayWassUp() const
+void	GuiGTK::initGui()
 {
   std::cout << "YOOOO" << std::endl;
 }

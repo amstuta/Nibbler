@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:40:35 2015 arthur
-// Last update Tue Mar 17 18:40:35 2015 arthur
+// Last update Tue Mar 17 18:52:09 2015 arthur
 //
 
 #ifndef LOADER_HPP_
@@ -23,7 +23,7 @@ public:
   Loader(const std::string &file);
   ~Loader();
 
-  IGui	*initGui();
+  IGui	*getGui();
 };
 
 #endif

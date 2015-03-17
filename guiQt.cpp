@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:40:11 2015 arthur
-// Last update Tue Mar 17 18:40:12 2015 arthur
+// Last update Tue Mar 17 18:51:06 2015 arthur
 //
 
 #include <iostream>
@@ -20,7 +20,7 @@ GuiQt::~GuiQt()
 {
 }
 
-void GuiQt::sayWassUp() const
+void	GuiQt::initGui()
 {
   std::cout << "WAZZAHHH" << std::endl;
 }

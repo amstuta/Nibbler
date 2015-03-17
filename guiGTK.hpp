@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:39:38 2015 arthur
-// Last update Tue Mar 17 18:39:39 2015 arthur
+// Last update Tue Mar 17 18:50:31 2015 arthur
 //
 
 #ifndef GUIGTK_HPP_
@@ -19,7 +19,7 @@ public:
   GuiGTK();
   ~GuiGTK();
 
-  void	sayWassUp() const;
+  void	initGui();
 };
 
 #endif
