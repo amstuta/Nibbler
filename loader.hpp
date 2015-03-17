@@ -2,6 +2,7 @@
 # define LOADER_HPP_
 
 #include <string>
+#include "IGui.hpp"
 
 class Loader
 {
@@ -12,7 +13,7 @@ public:
   Loader(const std::string &file);
   ~Loader();
 
-  void	initGui();
+  IGui	*initGui();
 };
 
 #endif

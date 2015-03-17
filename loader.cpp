@@ -20,14 +20,15 @@ Loader::~Loader()
   dlclose(handler);
 }
 
-void Loader::initGui()
+IGui	*Loader::initGui()
 {
   IGui	*obj;
   IGui*	(*creator)();
 
   creator = reinterpret_cast<IGui* (*)()>(dlsym(handler, "create_gui"));
   if (creator == NULL)
-    return;
+    return NULL;
   obj = creator();
-  obj->sayWassUp();
+
+  return obj;
 }

@@ -2,9 +2,21 @@
 #include "loader.hpp"
 #include "snake.hpp"
 
-int		main(int ac, char **av)
+void		trySnake()
 {
   Snake		s;
+  
+  s.addPoint(1, 4);
+  s.addPoint(7, 9);
+  s.addPoint(5, 3);
+  s.printPoints();
+  s.moveDontEat(2, 2);
+  s.printPoints();
+}
+
+int		main(int ac, char **av)
+{
+  IGui		*gui;
   std::string	libName;
   
   if (ac != 4)
@@ -12,17 +24,14 @@ int		main(int ac, char **av)
       std::cout << "Usage: ./nibbler width height library" << std::endl;
       return (-1);
     }
-
-  s.addPoint(1, 4);
-  s.addPoint(7, 9);
-  s.addPoint(5, 3);
-  s.printPoints();
-  s.move(2, 2);
-  s.printPoints();
     
   libName = "./";
   libName += av[3];
   Loader l(libName);
-  l.initGui();
+  gui = l.initGui();
+  gui->sayWassUp();
+
+  trySnake();
+  
   return (0);
 }
