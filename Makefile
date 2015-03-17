@@ -11,7 +11,8 @@ NAME_L1	= libGTK.so
 NAME_L2 = libQt.so
 
 SRCS_E	= main.cpp \
-	  loader.cpp
+	  loader.cpp \
+	  snake.cpp
 SRCS_L1	= guiGTK.cpp
 SRCS_L2 = guiQt.cpp
 
