@@ -1,3 +1,13 @@
+//
+// main.cpp for main in /home/amstuta/rendu/cpp_nibbler
+//
+// Made by arthur
+// Login   <amstuta@epitech.net>
+//
+// Started on  Tue Mar 17 18:40:41 2015 arthur
+// Last update Tue Mar 17 18:40:42 2015 arthur
+//
+
 #include <iostream>
 #include "loader.hpp"
 #include "snake.hpp"

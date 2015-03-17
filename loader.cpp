@@ -1,3 +1,13 @@
+//
+// loader.cpp for loader in /home/amstuta/rendu/cpp_nibbler
+//
+// Made by arthur
+// Login   <amstuta@epitech.net>
+//
+// Started on  Tue Mar 17 18:40:29 2015 arthur
+// Last update Tue Mar 17 18:40:30 2015 arthur
+//
+
 #include <dlfcn.h>
 #include <cstdlib>
 #include <iostream>
