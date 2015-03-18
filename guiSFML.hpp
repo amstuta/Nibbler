@@ -5,19 +5,19 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:48:25 2015 arthur
-// Last update Tue Mar 17 18:51:19 2015 arthur
+// Last update Wed Mar 18 13:19:05 2015 arthur
 //
 
-#ifndef GUISDL_HPP_
-#define GUISDL_HPP_
+#ifndef GUISFML_HPP_
+#define GUISFML_HPP_
 
 #include "IGui.hpp"
 
-class guiSDL: public IGui
+class guiSFML: public IGui
 {
 public:
-  guiSDL();
-  ~guiSDL();
+  guiSFML();
+  ~guiSFML();
 
   void	initGui();
 };

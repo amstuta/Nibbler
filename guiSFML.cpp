@@ -5,22 +5,21 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:55:33 2015 arthur
-// Last update Tue Mar 17 18:55:39 2015 arthur
+// Last update Wed Mar 18 13:19:58 2015 arthur
 //
 
-#include "guiSDL.hpp"
+#include "guiSFML.hpp"
 
-guiSDL::guiSDL():
+guiSFML::guiSFML():
   IGui::IGui()
 {
 }
 
-guiSDL::~guiSDL()
+guiSFML::~guiSFML()
 {
 }
 
-void guiSDL::initGui()
+void guiSFML::initGui()
 {
-  
 }
 
