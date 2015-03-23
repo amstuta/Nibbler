@@ -31,6 +31,11 @@ int	GuiNDK::rcv_event()
   return 0;
 }
 
+void	GuiNDK::refresh()
+{
+  std::cout << "YOOOO" << std::endl;
+}
+
 extern "C"
 {
   IGui	*create_gui()

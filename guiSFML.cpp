@@ -22,7 +22,7 @@ GuiSFML::~GuiSFML()
 
 void GuiSFML::initGui()
 {
-  window = new sf::RenderWindow(sf::VideoMode(200, 200, 32), "Nibbler", );
+  window = new sf::RenderWindow(sf::VideoMode(200, 200, 32), "Nibbler", sf::Style::Close);
 }
 
 int GuiSFML::rcv_event()

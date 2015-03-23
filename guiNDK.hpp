@@ -21,6 +21,7 @@ public:
 
   void	initGui();
   int	rcv_event();
+  void	refresh();
 };
 
 #endif

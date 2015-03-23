@@ -20,6 +20,7 @@ public:
 
   virtual void	initGui() = 0;
   virtual int	rcv_event() = 0;
+  virtual void	refresh() = 0;
 };
 
 #endif
