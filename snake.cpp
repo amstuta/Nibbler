@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 17:57:22 2015 arthur
-// Last update Tue Mar 17 18:33:13 2015 arthur
+// Last update Mon Mar 23 16:23:38 2015 raphael elkaim
 //
 
 #include <iostream>
@@ -14,6 +14,10 @@
 Snake::Snake():
   points()
 {
+  for (int i(0); i < 4; i++)
+    {
+      addPoint(0, i);
+    }
 }
 
 Snake::~Snake()

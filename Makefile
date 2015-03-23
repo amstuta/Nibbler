@@ -36,7 +36,7 @@ $(NAME_L2): $(OBJS_L2)
 	    $(CC) -shared -o $(NAME_L2) $(OBJS_L2)
 
 $(NAME_L3): $(OBJS_L3)
-	    $(CC) -shared $(OBJS_L3) -o $(NAME_L3) -lsfml-graphics -lsfml-window -lsfml-system
+	    $(CC) -shared $(OBJS_L3) -o $(NAME_L3) -lsfml-graphics -lsfml-window  -lsfml-system
 
 clean:
 	  $(RM) $(OBJS_E) $(OBJS_L1) $(OBJS_L2) $(OBJS_L3)

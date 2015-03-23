@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:55:33 2015 arthur
-// Last update Mon Mar 23 14:36:18 2015 raphael elkaim
+// Last update Mon Mar 23 16:07:55 2015 raphael elkaim
 //
 #include <SFML/Graphics.hpp>
 #include <unistd.h>
@@ -22,7 +22,7 @@ GuiSFML::~GuiSFML()
 
 void GuiSFML::initGui()
 {
-  window = new sf::RenderWindow(sf::VideoMode(200, 200, 32), "Nibbler");
+  window = new sf::RenderWindow(sf::VideoMode(200, 200, 32), "Nibbler", );
 }
 
 int GuiSFML::rcv_event()
@@ -41,6 +41,12 @@ int GuiSFML::rcv_event()
 	return 3;
     }
   return 0;
+}
+
+void GuiSFML::refresh()
+{
+  window->Clear();
+  window->Display();
 }
   
 extern "C"
