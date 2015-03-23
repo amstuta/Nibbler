@@ -5,30 +5,36 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:39:50 2015 arthur
-// Last update Tue Mar 17 18:50:17 2015 arthur
+// Last update Mon Mar 23 14:48:12 2015 raphael elkaim
 //
 
 #include <iostream>
-#include "guiGTK.hpp"
+#include "guiNDK.hpp"
 
-GuiGTK::GuiGTK():
+GuiNDK::GuiNDK():
   IGui::IGui()
 {
 }
 
-GuiGTK::~GuiGTK()
+GuiNDK::~GuiNDK()
 {
 }
 
-void	GuiGTK::initGui()
+void	GuiNDK::initGui()
 {
   std::cout << "YOOOO" << std::endl;
+}
+
+int	GuiNDK::rcv_event()
+{
+  std::cout << "YOOOO" << std::endl;
+  return 0;
 }
 
 extern "C"
 {
   IGui	*create_gui()
   {
-    return new GuiGTK;
+    return new GuiNDK;
   }
 }

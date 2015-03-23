@@ -2,18 +2,18 @@ RM	= rm -f
 CC	= g++
 
 CFLAGS	= -fPIC -Wall -Wextra -Werror
-CPPFLAGS= -Wall -Wextra -Werror
+CPPFLAGS= -rdynamic -fPIC -Wall -Wextra -Werror
 LDLFLAGS= -ldl
 
 NAME_E	= nibbler
-NAME_L1	= libGTK.so
+NAME_L1	= libNDK.so
 NAME_L2 = libQt.so
 NAME_L3	= libSFML.so
 
 SRCS_E	= main.cpp \
 	  loader.cpp \
 	  snake.cpp
-SRCS_L1	= guiGTK.cpp
+SRCS_L1	= guiNDK.cpp
 SRCS_L2 = guiQt.cpp
 SRCS_L3	= guiSFML.cpp
 
@@ -36,8 +36,7 @@ $(NAME_L2): $(OBJS_L2)
 	    $(CC) -shared -o $(NAME_L2) $(OBJS_L2)
 
 $(NAME_L3): $(OBJS_L3)
-	    $(CC) -fPIC -c -o $(OBJS_L3) $(SRCS_L3)
-	    $(CC) -shared -o $(NAME_L3) $(OBJS_L3)
+	    $(CC) -shared $(OBJS_L3) -o $(NAME_L3) -lsfml-graphics -lsfml-window -lsfml-system
 
 clean:
 	  $(RM) $(OBJS_E) $(OBJS_L1) $(OBJS_L2) $(OBJS_L3)

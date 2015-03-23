@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:40:20 2015 arthur
-// Last update Tue Mar 17 18:53:03 2015 arthur
+// Last update Mon Mar 23 14:34:02 2015 raphael elkaim
 //
 
 #ifndef IGUI_HPP_
@@ -17,7 +17,9 @@ public:
   IGui() {}
   virtual ~IGui() {}
 
+
   virtual void	initGui() = 0;
+  virtual int	rcv_event() = 0;
 };
 
 #endif

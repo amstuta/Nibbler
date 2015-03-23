@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:40:04 2015 arthur
-// Last update Tue Mar 17 18:50:46 2015 arthur
+// Last update Mon Mar 23 14:50:40 2015 raphael elkaim
 //
 
 #ifndef GUIQT_HPP_
@@ -20,6 +20,7 @@ public:
   ~GuiQt();
 
   void	initGui();
+  int	rcv_event();
 };
 
 #endif
