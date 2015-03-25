@@ -5,18 +5,21 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 17:57:22 2015 arthur
-// Last update Mon Mar 23 16:23:38 2015 raphael elkaim
+// Last update Wed Mar 25 16:10:22 2015 raphael elkaim
 //
 
 #include <iostream>
 #include "snake.hpp"
 
-Snake::Snake():
-  points()
+Snake::Snake(int x, int y,  std::vector< std::vector<char> > *p):
+  points(),
+  plat(p),
+  speedX(0),
+  speedY(-1)
 {
   for (int i(0); i < 4; i++)
     {
-      addPoint(0, i);
+      addPoint(x, y + i);
     }
 }
 
@@ -36,6 +39,7 @@ void	Snake::addPoint(int x, int y)
   p->x = x;
   p->y = y;
   points.push_back(p);
+  (*plat)[y][x] = '#';
 }
 
 void	Snake::printPoints() const
@@ -47,21 +51,27 @@ void	Snake::printPoints() const
     }
 }
 
-void	Snake::moveDontEat(int x, int y)
+void	Snake::move()
 {
   Point	*p = new Point;
 
-  p->x = x;
-  p->y = y;
+  p->x = points[0]->x + speedX;
+  p->y = points[0]->y + speedY;
+  (*plat)[p->y][p->x] = '#';
   points.insert(points.begin(), p);
+  (*plat)[points.back()->y][points.back()->x] = '0';
+  delete points.back();
   points.pop_back();
 }
 
-void	Snake::moveEat(int x, int y)
+void	Snake::turn(int value)
+{
+  speedX = (speedX == 0) * value;
+  speedY = (speedY == 0) * value;
+}
+
+void	Snake::moveEat()
 {
   Point	*p = new Point;
-    
-  p->x = x;
-  p->y = y;
-  points.insert(points.begin(), p);
+      points.insert(points.begin(), p);
 }

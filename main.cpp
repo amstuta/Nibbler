@@ -5,24 +5,15 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:40:41 2015 arthur
-// Last update Mon Mar 23 16:08:08 2015 raphael elkaim
+// Last update Wed Mar 25 16:24:50 2015 raphael elkaim
 //
 
 #include <iostream>
+#include <sstream>
+#include "board.hpp"
+#include "coord.hpp"
 #include "loader.hpp"
 #include "snake.hpp"
-
-void		trySnake()
-{
-  Snake		s;
-  
-  s.addPoint(1, 4);
-  s.addPoint(7, 9);
-  s.addPoint(5, 3);
-  s.printPoints();
-  s.moveDontEat(2, 2);
-  s.printPoints();
-}
 
 int		main(int ac, char **av)
 {
@@ -34,11 +25,12 @@ int		main(int ac, char **av)
       std::cout << "Usage: ./nibbler width height library" << std::endl;
       return (-1);
     }
-    
   libName = "./";
   libName += av[3];
   Loader l(libName);
   gui = l.getGui();
-  gui->initGui();
+  Coord	axis(av[1], av[2]);
+  Board game(axis[0], axis[1], gui);
+  game.launch();
   return (0);
 }

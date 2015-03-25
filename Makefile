@@ -12,7 +12,9 @@ NAME_L3	= libSFML.so
 
 SRCS_E	= main.cpp \
 	  loader.cpp \
-	  snake.cpp
+	  snake.cpp \
+	  board.cpp \
+	  coord.cpp
 SRCS_L1	= guiNDK.cpp
 SRCS_L2 = guiQt.cpp
 SRCS_L3	= guiSFML.cpp
