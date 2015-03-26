@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 17:57:22 2015 arthur
-// Last update Thu Mar 26 12:37:27 2015 raphael elkaim
+// Last update Thu Mar 26 15:33:04 2015 raphael elkaim
 //
 
 #include <iostream>
@@ -36,34 +36,44 @@ void	Snake::addPoint(int x, int y)
 {
   Point	*p = new Point;
   
-  p->x = x;
-  p->y = y;
+  p->first = x;
+  p->second = y;
   points.push_back(p);
+  if (p->first / plat->size() > 0 || p->second / (*plat)[0].size() > 0)
+    return ;
   (*plat)[y][x] = '#';
 }
 
 void	Snake::printPoints() const
 {
-  for (std::vector<Point*>::const_iterator it = points.begin();
+  /*  for (std::vector<Point*>::const_iterator it = points.begin();
        it != points.end(); ++it)
     {
       std::cout << "X: " << (*it)->x << ", Y: " << (*it)->y << std::endl;
-    }
+      }*/
 }
 
 int	Snake::move()
 {
   Point	*p = new Point;
+  int	ate = 0;
 
-  p->x = points[0]->x + speedX;
-  p->y = points[0]->y + speedY;
-  if (p->y / plat->size() > 0 || p->x / (*plat)[0].size() > 0)
+  p->first = points[0]->first + speedX;
+  p->second = points[0]->second + speedY;
+  if (!ate)
+    {
+      (*plat)[points.back()->second][points.back()->first] = '0';
+      delete points.back();
+      points.pop_back();
+    }
+  if (p->first / plat->size() > 0 
+      || p->second / (*plat)[0].size() > 0
+      || (*plat)[p->second][p->first] == '#')
     return 1;
-  //(*plat)[p->y % plat->size()][] = '#';
+  if ((*plat)[p->second][p->first] != '0')
+    ate = 1;
+  (*plat)[p->second][p->first] = '#';
   points.insert(points.begin(), p);
-  //(*plat)[points.back()->y % plat->size()][points.back()->x % (*plat)[0].size()] = '0';
-  delete points.back();
-  points.pop_back();
   return 0;
 }
 

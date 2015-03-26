@@ -5,23 +5,26 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 17:54:19 2015 arthur
-// Last update Thu Mar 26 12:34:49 2015 raphael elkaim
+// Last update Thu Mar 26 13:33:14 2015 raphael elkaim
 //
 
 #ifndef SNAKE_HPP_
 #define SNAKE_HPP_
 
+#include <utility>
 #include <vector>
 
-typedef struct
+/*typedef struct
 {
   int	x;
   int	y;
-} Point;
+  } Point;*/
+
+typedef std::pair<int, int> Point;
 
 class Snake
 {
-  std::vector<Point*>	points;
+  std::vector<Point *> points;
   std::vector< std::vector<char> > *plat;
   int speedX;
   int speedY;
