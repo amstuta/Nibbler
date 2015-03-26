@@ -5,11 +5,12 @@
 // Login   <elkaim_r@epitech.net>
 // 
 // Started on  Mon Mar 23 14:36:37 2015 raphael elkaim
-// Last update Wed Mar 25 16:24:33 2015 raphael elkaim
+// Last update Thu Mar 26 11:54:08 2015 raphael elkaim
 //
 
 #include <iostream>
 #include <algorithm>
+#include <unistd.h>
 #include "snake.hpp"
 #include "board.hpp"
 
@@ -25,7 +26,8 @@ Board::Board(int _xSize, int _ySize, IGui * gi):
   ySize(_ySize),
   gui(gi)
 {
-  gui->initGui();
+  gui->initGui(xSize, ySize, &plat);
+  gui->refresh();
 }
 
 Board::~Board()
@@ -34,16 +36,15 @@ Board::~Board()
 
 int	Board::launch()
 {
-  ken.move();
-  ken.turn(-1);
-  ken.move();
-  ken.turn(-1);
-  ken.move();
-  std::cout << "YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO" << std::endl;
-  for (int i(0); i < ySize; i++)
+  int	eve;
+  while ((eve = gui->rcv_event()) != 2)
     {
-      for_each(plat[i].begin(), plat[i].end(), printf_int);
-      std::cout << std::endl;
+      if (eve != 0)
+	ken.turn(eve);
+      ken.move();
+      gui->update();
+      gui->refresh();
+      usleep(50000);
     }
   return 0;
 }

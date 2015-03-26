@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 17:54:19 2015 arthur
-// Last update Wed Mar 25 16:14:03 2015 raphael elkaim
+// Last update Thu Mar 26 12:12:33 2015 raphael elkaim
 //
 
 #ifndef SNAKE_HPP_
@@ -34,6 +34,7 @@ public:
   void	move();
   void	turn(int);
   void	moveEat();
+  std::vector<Point*> *getSnake();
 };
 
 #endif

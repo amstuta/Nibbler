@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 17:57:22 2015 arthur
-// Last update Wed Mar 25 16:10:22 2015 raphael elkaim
+// Last update Thu Mar 26 12:12:20 2015 raphael elkaim
 //
 
 #include <iostream>
@@ -57,9 +57,9 @@ void	Snake::move()
 
   p->x = points[0]->x + speedX;
   p->y = points[0]->y + speedY;
-  (*plat)[p->y][p->x] = '#';
+  (*plat)[p->y % plat->size()][p->x % (*plat)[0].size()] = '#';
   points.insert(points.begin(), p);
-  (*plat)[points.back()->y][points.back()->x] = '0';
+  (*plat)[points.back()->y % plat->size()][points.back()->x % (*plat)[0].size()] = '0';
   delete points.back();
   points.pop_back();
 }
@@ -74,4 +74,9 @@ void	Snake::moveEat()
 {
   Point	*p = new Point;
       points.insert(points.begin(), p);
+}
+
+std::vector<Point*> *Snake::getSnake()
+{
+  return &points;
 }

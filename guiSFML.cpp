@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:55:33 2015 arthur
-// Last update Mon Mar 23 16:07:55 2015 raphael elkaim
+// Last update Thu Mar 26 12:06:53 2015 raphael elkaim
 //
 #include <SFML/Graphics.hpp>
 #include <unistd.h>
@@ -20,9 +20,10 @@ GuiSFML::~GuiSFML()
 {
 }
 
-void GuiSFML::initGui()
+void GuiSFML::initGui(int x, int y, std::vector< std::vector<char> > *plat)
 {
-  window = new sf::RenderWindow(sf::VideoMode(200, 200, 32), "Nibbler", sf::Style::Close);
+  board = plat;
+  window = new sf::RenderWindow(sf::VideoMode(x * 20, y * 20, 32), "Nibbler", sf::Style::Close);
 }
 
 int GuiSFML::rcv_event()
@@ -32,21 +33,47 @@ int GuiSFML::rcv_event()
   while (window->GetEvent(Event))
     {
       if (Event.Type == sf::Event::Closed)
-	return 1;
-      if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Escape))
-	return 1;
-      if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Left))
 	return 2;
+      if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Escape))
+	return 2;
+      if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Left))
+	return -1;
       if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Right))
-	return 3;
+	return 1;
     }
   return 0;
 }
 
+void GuiSFML::update()
+{
+  sf::Shape head = sf::Shape::Rectangle(20, 0, 0, 20, sf::Color(0, 255, 0, 255));
+  sf::Shape snakou = sf::Shape::Rectangle(20, 0, 0, 20, sf::Color(255, 255, 128, 128));
+  int	cnt(0);
+  for (unsigned int i(0); i < board->size(); i++)
+    {
+      for (unsigned int j(0);j < (*board)[i].size();j++)
+	{
+	  if ((*board)[i][j] != '0' && cnt)
+	    {
+	      snakou.Scale(1, 1);
+	      snakou.SetPosition(j * 20, i * 20);
+	      window->Draw(snakou);
+	    }
+	  else if ((*board)[i][j] != '0' && !cnt)
+	    {
+	      head.Scale(1, 1);
+	      head.SetPosition(j * 20, i * 20);
+	      window->Draw(head);
+	      cnt++;
+	    }
+	}
+    }
+}
+
 void GuiSFML::refresh()
 {
-  window->Clear();
   window->Display();
+  window->Clear();
 }
   
 extern "C"
