@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 17:57:22 2015 arthur
-// Last update Thu Mar 26 12:12:20 2015 raphael elkaim
+// Last update Thu Mar 26 12:37:27 2015 raphael elkaim
 //
 
 #include <iostream>
@@ -51,17 +51,20 @@ void	Snake::printPoints() const
     }
 }
 
-void	Snake::move()
+int	Snake::move()
 {
   Point	*p = new Point;
 
   p->x = points[0]->x + speedX;
   p->y = points[0]->y + speedY;
-  (*plat)[p->y % plat->size()][p->x % (*plat)[0].size()] = '#';
+  if (p->y / plat->size() > 0 || p->x / (*plat)[0].size() > 0)
+    return 1;
+  //(*plat)[p->y % plat->size()][] = '#';
   points.insert(points.begin(), p);
-  (*plat)[points.back()->y % plat->size()][points.back()->x % (*plat)[0].size()] = '0';
+  //(*plat)[points.back()->y % plat->size()][points.back()->x % (*plat)[0].size()] = '0';
   delete points.back();
   points.pop_back();
+  return 0;
 }
 
 void	Snake::turn(int value)

@@ -5,10 +5,11 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:55:33 2015 arthur
-// Last update Thu Mar 26 12:06:53 2015 raphael elkaim
+// Last update Thu Mar 26 12:30:33 2015 raphael elkaim
 //
 #include <SFML/Graphics.hpp>
 #include <unistd.h>
+#include "snake.hpp"
 #include "guiSFML.hpp"
 
 GuiSFML::GuiSFML():
@@ -20,9 +21,9 @@ GuiSFML::~GuiSFML()
 {
 }
 
-void GuiSFML::initGui(int x, int y, std::vector< std::vector<char> > *plat)
+void GuiSFML::initGui(int x, int y, std::vector<Point *> *plat)
 {
-  board = plat;
+  snak = plat;
   window = new sf::RenderWindow(sf::VideoMode(x * 20, y * 20, 32), "Nibbler", sf::Style::Close);
 }
 
@@ -48,24 +49,19 @@ void GuiSFML::update()
 {
   sf::Shape head = sf::Shape::Rectangle(20, 0, 0, 20, sf::Color(0, 255, 0, 255));
   sf::Shape snakou = sf::Shape::Rectangle(20, 0, 0, 20, sf::Color(255, 255, 128, 128));
-  int	cnt(0);
-  for (unsigned int i(0); i < board->size(); i++)
+  for (unsigned int i(0); i < snak->size(); i++)
     {
-      for (unsigned int j(0);j < (*board)[i].size();j++)
+      if (!i)
 	{
-	  if ((*board)[i][j] != '0' && cnt)
-	    {
-	      snakou.Scale(1, 1);
-	      snakou.SetPosition(j * 20, i * 20);
-	      window->Draw(snakou);
-	    }
-	  else if ((*board)[i][j] != '0' && !cnt)
-	    {
-	      head.Scale(1, 1);
-	      head.SetPosition(j * 20, i * 20);
-	      window->Draw(head);
-	      cnt++;
-	    }
+	  snakou.Scale(1, 1);
+	  snakou.SetPosition((*snak)[i]->x * 20, (*snak)[i]->y * 20);
+	  window->Draw(snakou);
+	}
+      else
+	{
+	  head.Scale(1, 1);
+	  head.SetPosition((*snak)[i]->x * 20, (*snak)[i]->y * 20);
+	  window->Draw(head);
 	}
     }
 }

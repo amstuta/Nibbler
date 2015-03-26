@@ -5,7 +5,7 @@
 // Login   <elkaim_r@epitech.net>
 // 
 // Started on  Mon Mar 23 14:36:37 2015 raphael elkaim
-// Last update Thu Mar 26 11:54:08 2015 raphael elkaim
+// Last update Thu Mar 26 12:34:33 2015 raphael elkaim
 //
 
 #include <iostream>
@@ -26,7 +26,7 @@ Board::Board(int _xSize, int _ySize, IGui * gi):
   ySize(_ySize),
   gui(gi)
 {
-  gui->initGui(xSize, ySize, &plat);
+  gui->initGui(xSize, ySize, ken.getSnake());
   gui->refresh();
 }
 
@@ -41,7 +41,8 @@ int	Board::launch()
     {
       if (eve != 0)
 	ken.turn(eve);
-      ken.move();
+      if (ken.move() == 1)
+	break ;
       gui->update();
       gui->refresh();
       usleep(50000);

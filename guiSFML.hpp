@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:48:25 2015 arthur
-// Last update Thu Mar 26 11:27:52 2015 raphael elkaim
+// Last update Thu Mar 26 12:29:54 2015 raphael elkaim
 //
 
 #ifndef GUISFML_HPP_
@@ -18,12 +18,12 @@
 class GuiSFML: public IGui
 {
   sf::RenderWindow *window;
-  std::vector< std::vector<char> > *board;
+  std::vector<Point *> *snak;
 public:
   GuiSFML();
   ~GuiSFML();
 
-  void	initGui(int, int, std::vector< std::vector<char> > *);
+  void	initGui(int, int, std::vector<Point *> *);
   int	rcv_event();
   void	refresh();
   void	update();
