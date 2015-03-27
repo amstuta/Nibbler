@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:39:50 2015 arthur
-// Last update Fri Mar 27 14:54:22 2015 Lauranne Bruno
+// Last update Fri Mar 27 15:01:06 2015 Lauranne Bruno
 //
 
 #include <ncurses.h>
@@ -59,7 +59,6 @@ void		GuiNDK::refresh()
   wrefresh(this->window);
 }
 
-//couleurs
 void		GuiNDK::update()
 {
   int		x;
@@ -78,7 +77,7 @@ void		GuiNDK::update()
     }
   for (std::vector<Point*>::const_iterator it = snk->begin();
        it != snk->end(); ++it)
-    mvwprintw(this->window, (*it)->y + 1, (*it)->x + 1, "o");
+    mvwprintw(this->window, (*it)->second + 1, (*it)->first + 1, "o");
 }
 
 int		GuiNDK::rcv_event()

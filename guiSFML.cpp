@@ -5,10 +5,11 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:55:33 2015 arthur
-// Last update Thu Mar 26 12:30:33 2015 raphael elkaim
+// Last update Thu Mar 26 15:18:58 2015 raphael elkaim
 //
 #include <SFML/Graphics.hpp>
 #include <unistd.h>
+#include <utility>
 #include "snake.hpp"
 #include "guiSFML.hpp"
 
@@ -47,20 +48,20 @@ int GuiSFML::rcv_event()
 
 void GuiSFML::update()
 {
-  sf::Shape head = sf::Shape::Rectangle(20, 0, 0, 20, sf::Color(0, 255, 0, 255));
-  sf::Shape snakou = sf::Shape::Rectangle(20, 0, 0, 20, sf::Color(255, 255, 128, 128));
+  sf::Shape head = sf::Shape::Rectangle(18, 0, 0, 18, sf::Color(0, 255, 0, 255));
+  sf::Shape snakou = sf::Shape::Rectangle(18, 0, 0, 18, sf::Color(255, 255, 128, 128));
   for (unsigned int i(0); i < snak->size(); i++)
     {
       if (!i)
 	{
 	  snakou.Scale(1, 1);
-	  snakou.SetPosition((*snak)[i]->x * 20, (*snak)[i]->y * 20);
+	  snakou.SetPosition((*snak)[i]->first * 20, (*snak)[i]->second * 20);
 	  window->Draw(snakou);
 	}
       else
 	{
 	  head.Scale(1, 1);
-	  head.SetPosition((*snak)[i]->x * 20, (*snak)[i]->y * 20);
+	  head.SetPosition((*snak)[i]->first * 20, (*snak)[i]->second * 20);
 	  window->Draw(head);
 	}
     }
