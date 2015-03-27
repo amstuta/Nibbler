@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 17:57:22 2015 arthur
-// Last update Thu Mar 26 15:33:04 2015 raphael elkaim
+// Last update Fri Mar 27 15:10:13 2015 raphael elkaim
 //
 
 #include <iostream>
@@ -38,9 +38,9 @@ void	Snake::addPoint(int x, int y)
   
   p->first = x;
   p->second = y;
-  points.push_back(p);
   if (p->first / plat->size() > 0 || p->second / (*plat)[0].size() > 0)
     return ;
+  points.push_back(p);
   (*plat)[y][x] = '#';
 }
 
@@ -60,16 +60,16 @@ int	Snake::move()
 
   p->first = points[0]->first + speedX;
   p->second = points[0]->second + speedY;
+  if (p->first / plat->size() > 0 
+      || p->second / (*plat)[0].size() > 0
+      || (*plat)[p->second][p->first] == '#')
+    return 1;
   if (!ate)
     {
       (*plat)[points.back()->second][points.back()->first] = '0';
       delete points.back();
       points.pop_back();
     }
-  if (p->first / plat->size() > 0 
-      || p->second / (*plat)[0].size() > 0
-      || (*plat)[p->second][p->first] == '#')
-    return 1;
   if ((*plat)[p->second][p->first] != '0')
     ate = 1;
   (*plat)[p->second][p->first] = '#';
@@ -86,7 +86,7 @@ void	Snake::turn(int value)
 void	Snake::moveEat()
 {
   Point	*p = new Point;
-      points.insert(points.begin(), p);
+  points.insert(points.begin(), p);
 }
 
 std::vector<Point*> *Snake::getSnake()
