@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:39:50 2015 arthur
-// Last update Fri Mar 27 15:01:06 2015 Lauranne Bruno
+// Last update Fri Mar 27 15:17:11 2015 Lauranne Bruno
 //
 
 #include <ncurses.h>
@@ -44,8 +44,8 @@ void		GuiNDK::initGui(int x, int y, std::vector<Point *> *snake)
   if (x < 0 && y < 0)
     return;
   this->snk = snake;
-  this->win_x = 20;
-  this->win_y = 20;
+  this->win_x = x + 2;
+  this->win_y = y + 2;
   initscr();
   noecho();
   cbreak();
