@@ -5,7 +5,7 @@
 // Login   <elkaim_r@epitech.net>
 // 
 // Started on  Mon Mar 23 14:36:42 2015 raphael elkaim
-// Last update Thu Mar 26 11:12:12 2015 raphael elkaim
+// Last update Fri Mar 27 15:18:53 2015 raphael elkaim
 //
 
 #ifndef BOARD_HPP_

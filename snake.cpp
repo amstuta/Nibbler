@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 17:57:22 2015 arthur
-// Last update Fri Mar 27 15:14:37 2015 raphael elkaim
+// Last update Fri Mar 27 15:23:10 2015 raphael elkaim
 //
 
 #include <iostream>
@@ -40,7 +40,7 @@ void	Snake::addPoint(int x, int y)
   
   p->first = x;
   p->second = y;
-  if (p->first / plat->size() > 0 || p->second / (*plat)[0].size() > 0)
+  if (p->second / plat->size() > 0 || p->first / (*plat)[0].size() > 0)
     return ;
   points.push_back(p);
   (*plat)[y][x] = '#';
@@ -62,8 +62,8 @@ int	Snake::move()
 
   p->first = points[0]->first + speedX;
   p->second = points[0]->second + speedY;
-  if (p->first / plat->size() > 0 
-      || p->second / (*plat)[0].size() > 0
+  if (p->second / plat->size() > 0 
+      || p->first / (*plat)[0].size() > 0
       || (*plat)[p->second][p->first] == '#')
     return 1;
   if (!ate)
