@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 17:57:22 2015 arthur
-// Last update Fri Mar 27 15:23:10 2015 raphael elkaim
+// Last update Fri Mar 27 15:27:50 2015 raphael elkaim
 //
 
 #include <iostream>
@@ -17,12 +17,10 @@ Snake::Snake(int x, int y,  std::vector< std::vector<char> > *p):
   speedX(0),
   speedY(-1)
 {
-  std::cout << "test\n";
   for (int i(0); i < 4; i++)
     {
       addPoint(x, y + i);
     }
-  std::cout << "test2\n";
 }
 
 Snake::~Snake()
