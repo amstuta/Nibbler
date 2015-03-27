@@ -24,14 +24,14 @@ OBJS_L1	= $(SRCS_L1:.cpp=.o)
 OBJS_L2	= $(SRCS_L2:.cpp=.o)
 OBJS_L3	= $(SRCS_L3:.cpp=.o)
 
-all:	$(NAME_E)  $(NAME_L3) #$(NAME_L1) $(NAME_L2)
+all:	$(NAME_E)  $(NAME_L3) $(NAME_L1) #$(NAME_L2)
 
 $(NAME_E): $(OBJS_E)
 	   $(CC) -o $(NAME_E) $(OBJS_E) $(LDLFLAGS)
 
 $(NAME_L1): $(OBJS_L1)
 	    $(CC) -fPIC -c -o $(OBJS_L1) $(SRCS_L1)
-	    $(CC) -shared -o $(NAME_L1) $(OBJS_L1)
+	    $(CC) -shared -o $(NAME_L1) $(OBJS_L1) -lncurses
 
 $(NAME_L2): $(OBJS_L2)
 	    $(CC) -fPIC -c -o $(OBJS_L2) $(SRCS_L2)
