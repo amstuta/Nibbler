@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:40:41 2015 arthur
-// Last update Thu Mar 26 14:43:56 2015 raphael elkaim
+// Last update Fri Mar 27 14:59:16 2015 Lauranne Bruno
 //
 
 #include <iostream>
@@ -37,5 +37,6 @@ int		main(int ac, char **av)
     }
   Board game(axis[0], axis[1], gui);
   game.launch();
-  return 0;
+  delete gui;
+  return (0);
 }

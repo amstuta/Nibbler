@@ -5,7 +5,7 @@
 // Login   <elkaim_r@epitech.net>
 // 
 // Started on  Mon Mar 23 14:36:37 2015 raphael elkaim
-// Last update Thu Mar 26 15:40:34 2015 raphael elkaim
+// Last update Fri Mar 27 14:59:29 2015 Lauranne Bruno
 //
 
 #include <iostream>
@@ -40,12 +40,12 @@ int	Board::launch()
   while ((eve = gui->rcv_event()) != 2)
     {
       if (eve != 0)
-	ken.turn(eve);
+      	ken.turn(eve);
       if (ken.move() == 1)
 	break ;
       gui->update();
       gui->refresh();
-      usleep(50000);
+      usleep(200000);
     }
   return 0;
 }
