@@ -5,14 +5,17 @@
 // Login   <elkaim_r@epitech.net>
 // 
 // Started on  Thu Mar 26 13:49:23 2015 raphael elkaim
-// Last update Mon Mar 30 11:25:42 2015 raphael elkaim
+// Last update Mon Mar 30 15:37:31 2015 raphael elkaim
 //
 
+#include <ctime>
 #include "fruitgen.hpp"
+#include "fruit.hpp"
 
-FruitGen::FruitGen(int _sizeX, int _sizeY):
+FruitGen::FruitGen(int _sizeX, int _sizeY, std::vector< std::vector<char> > *pl):
   sizeX(_sizeX),
-  sizeY(_sizeY)
+  sizeY(_sizeY),
+  plat(pl)
 {
   srandom(time(0));
 }
@@ -21,15 +24,25 @@ FruitGen::~FruitGen()
 {
 }
 
-void popFruit()
+void FruitGen::popFruit(unsigned int nb)
 {
   Point pos;
 
-do
-  {
-    pos.first = rand() % sizeX;
-    pos.second = rand() % sizeY;
-  } while ((*plat)[pos.second][pos.first] != '0');
- stock[pos] = Fruit(pos.first, pos.second);
- (*plat)[pos.second][pos.first] = 'f';
+  if (nb >= stock.size() && stock.size() > 0)
+    return ;
+  for (unsigned int i(0);i < nb; i++)
+    {
+      do
+	{
+	  pos.first = rand() % sizeX;
+	  pos.second = rand() % sizeY;
+	} while ((*plat)[pos.second][pos.first] != '0');
+      stock[pos] = Fruit(pos.first, pos.second);
+      (*plat)[pos.second][pos.first] = 'f';
+    }
+}
+
+std::map<Point, Fruit> &FruitGen::getFruit()
+{
+  return stock;
 }

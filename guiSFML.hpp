@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:48:25 2015 arthur
-// Last update Mon Mar 30 12:11:48 2015 raphael elkaim
+// Last update Mon Mar 30 15:04:32 2015 raphael elkaim
 //
 
 #ifndef GUISFML_HPP_
@@ -19,6 +19,11 @@ class GuiSFML: public IGui
 {
   sf::RenderWindow *window;
   std::vector<Point *> *snak;
+  int xs;
+  int ys;
+  sf::Image borderImage;
+  sf::Image grassImage;
+  sf::Image fruitImage;
 public:
   GuiSFML();
   ~GuiSFML();
@@ -28,6 +33,7 @@ public:
   void	refresh();
   void	update();
   void	dispFruit(std::map<Point, Fruit> &);
+  void	showScore(int);
 };
 
 #endif

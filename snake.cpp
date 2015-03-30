@@ -5,17 +5,18 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 17:57:22 2015 arthur
-// Last update Fri Mar 27 15:27:50 2015 raphael elkaim
+// Last update Mon Mar 30 13:45:04 2015 raphael elkaim
 //
 
 #include <iostream>
 #include "snake.hpp"
 
-Snake::Snake(int x, int y,  std::vector< std::vector<char> > *p):
+Snake::Snake(int x, int y,  std::vector< std::vector<char> > *p, std::map<Point, Fruit> *stock):
   points(),
   plat(p),
   speedX(0),
-  speedY(-1)
+  speedY(-1), 
+  sto(stock)
 {
   for (int i(0); i < 4; i++)
     {
@@ -64,41 +65,26 @@ int	Snake::move()
       || p->first / (*plat)[0].size() > 0
       || (*plat)[p->second][p->first] == '#')
     return 1;
+  if ((*plat)[p->second][p->first] == 'f')
+    {
+      ate = 2;
+      sto->erase(*p);
+    }
   if (!ate)
     {
       (*plat)[points.back()->second][points.back()->first] = '0';
       delete points.back();
       points.pop_back();
     }
-  if ((*plat)[p->second][p->first] != '0')
-    ate = 1;
   (*plat)[p->second][p->first] = '#';
   points.insert(points.begin(), p);
-  return 0;
+  return ate;
 }
 
 void	Snake::turn(int value)
 {
-  if (speedX == value)
-    {
-      speedX = 0;
-      speedY = 1;
-    }
-  else if (speedY == value)
-    {
-      speedX = -1;
-      speedY = 0;
-    }
-  else if ((value == 1 && speedY == -1) || (value == -1 && speedY == 1))
-    {
-      speedX = 1;
-      speedY = 0;
-    }
-  else
-    {
-      speedX = 0;
-      speedY = -1;
-    }
+  speedX = (speedX == 0) * value;
+  speedY = (speedY == 0) * value;
 }
 
 void	Snake::moveEat()

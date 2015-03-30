@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:40:20 2015 arthur
-// Last update Mon Mar 30 12:12:46 2015 raphael elkaim
+// Last update Mon Mar 30 14:02:09 2015 raphael elkaim
 //
 
 #ifndef IGUI_HPP_
@@ -28,6 +28,7 @@ public:
   virtual void	refresh() = 0;
   virtual void	update() = 0;
   virtual void	dispFruit(std::map<Point, Fruit> &) = 0;
+  virtual void	showScore(int) = 0;
 };
 
 #endif

@@ -5,7 +5,7 @@
 // Login   <elkaim_r@epitech.net>
 // 
 // Started on  Thu Mar 26 13:49:29 2015 raphael elkaim
-// Last update Mon Mar 30 11:34:46 2015 raphael elkaim
+// Last update Mon Mar 30 15:19:00 2015 raphael elkaim
 //
 
 #ifndef FRUITGEN_HPP_
@@ -20,12 +20,12 @@ class FruitGen
 {
   int sizeX;
   int sizeY;
-  std::vector< std::vector<char> > plat;
+  std::vector< std::vector<char> > *plat;
   std::map<Point, Fruit> stock;
 public:
   FruitGen(int, int, std::vector< std::vector<char> > *);
   ~FruitGen();
-  void popFruit();
+  void popFruit(unsigned int nb = 1);
   std::map<Point, Fruit> &getFruit();
 };
 
