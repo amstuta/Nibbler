@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:55:33 2015 arthur
-// Last update Thu Mar 26 15:18:58 2015 raphael elkaim
+// Last update Mon Mar 30 12:08:39 2015 raphael elkaim
 //
 #include <SFML/Graphics.hpp>
 #include <unistd.h>
@@ -44,6 +44,17 @@ int GuiSFML::rcv_event()
 	return 1;
     }
   return 0;
+}
+
+void GuiSFML::dispFruit(std::map<Point, Fruit> &fruits)
+{
+  sf::Shape fruit = sf::Shape::Rectangle(18, 0, 0, 18, sf::Color(255, 0, 0, 255));
+  for (std::map<char,int>::iterator it=fruits.begin();it != fruits.end;it++)
+    {
+      fruit.Scale(1, 1);
+      fruit.SetPosition((*it).first * 20, (*it).second * 20);
+      window->Draw(fruit);
+    }
 }
 
 void GuiSFML::update()

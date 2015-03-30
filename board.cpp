@@ -5,7 +5,7 @@
 // Login   <elkaim_r@epitech.net>
 // 
 // Started on  Mon Mar 23 14:36:37 2015 raphael elkaim
-// Last update Fri Mar 27 14:59:29 2015 Lauranne Bruno
+// Last update Mon Mar 30 12:03:34 2015 raphael elkaim
 //
 
 #include <iostream>
@@ -13,6 +13,7 @@
 #include <unistd.h>
 #include "snake.hpp"
 #include "board.hpp"
+#include "fruitgen.hpp"
 
 void	printf_int(char i)
 {
@@ -24,7 +25,8 @@ Board::Board(int _xSize, int _ySize, IGui * gi):
   ken(_xSize / 2, _ySize / 2, &plat),
   xSize(_xSize),
   ySize(_ySize),
-  gui(gi)
+  gui(gi),
+  Gene(xSize, ySize, &plat)
 {
   gui->initGui(xSize, ySize, ken.getSnake());
   gui->refresh();
@@ -43,6 +45,7 @@ int	Board::launch()
       	ken.turn(eve);
       if (ken.move() == 1)
 	break ;
+      gui->dispFruit(Gene.getFruit());
       gui->update();
       gui->refresh();
       usleep(200000);

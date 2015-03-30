@@ -14,7 +14,8 @@ SRCS_E	= main.cpp \
 	  loader.cpp \
 	  snake.cpp \
 	  board.cpp \
-	  coord.cpp
+	  coord.cpp \
+	  fruitgen.cpp
 SRCS_L1	= guiNDK.cpp
 SRCS_L2 = guiQt.cpp
 SRCS_L3	= guiSFML.cpp
