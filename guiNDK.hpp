@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:39:38 2015 arthur
-// Last update Mon Mar 30 10:39:21 2015 Lauranne Bruno
+// Last update Mon Mar 30 17:01:48 2015 Lauranne Bruno
 //
 
 #ifndef GUINDK_HPP_
@@ -30,6 +30,8 @@ public:
   int	rcv_event();
   void	refresh();
   void	update();
+  void	dispFruit(std::map<Point, Fruit> &);
+  void	showScore(int);
 };
 
 #endif	// !GUINDK_HPP_

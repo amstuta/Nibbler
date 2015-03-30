@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:39:50 2015 arthur
-// Last update Mon Mar 30 11:04:03 2015 Lauranne Bruno
+// Last update Mon Mar 30 17:03:10 2015 Lauranne Bruno
 //
 
 #include <ncurses.h>
@@ -101,6 +101,12 @@ int		GuiNDK::rcv_event()
     return (2);
   return (0);
 }
+
+void		GuiNDK::dispFruit(__attribute__((unused))std::map<Point, Fruit> &test)
+{}
+
+void		GuiNDK::showScore(__attribute__((unused))int score)
+{}
 
 extern "C"
 {
