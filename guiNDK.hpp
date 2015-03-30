@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:39:38 2015 arthur
-// Last update Fri Mar 27 14:33:55 2015 Lauranne Bruno
+// Last update Mon Mar 30 10:39:21 2015 Lauranne Bruno
 //
 
 #ifndef GUINDK_HPP_
@@ -32,4 +32,4 @@ public:
   void	update();
 };
 
-#endif	// !GUINDK_HPP
+#endif	// !GUINDK_HPP_

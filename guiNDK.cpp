@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:39:50 2015 arthur
-// Last update Fri Mar 27 15:17:11 2015 Lauranne Bruno
+// Last update Mon Mar 30 11:04:03 2015 Lauranne Bruno
 //
 
 #include <ncurses.h>
@@ -63,6 +63,7 @@ void		GuiNDK::update()
 {
   int		x;
   int		y;
+  int		i = 0;
 
   x = 1;
   while (x < this->win_x - 1)
@@ -77,7 +78,12 @@ void		GuiNDK::update()
     }
   for (std::vector<Point*>::const_iterator it = snk->begin();
        it != snk->end(); ++it)
-    mvwprintw(this->window, (*it)->second + 1, (*it)->first + 1, "o");
+    {
+      mvwprintw(this->window, (*it)->second + 1, (*it)->first + 1, "0");
+      if (i == 0)
+	mvwprintw(this->window, (*it)->second + 1, (*it)->first + 1, "O");
+      i = 1;
+    }
 }
 
 int		GuiNDK::rcv_event()
