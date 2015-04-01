@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 17:54:19 2015 arthur
-// Last update Mon Mar 30 13:22:43 2015 raphael elkaim
+// Last update Tue Mar 31 21:57:58 2015 Lauranne Bruno
 //
 
 #ifndef SNAKE_HPP_
@@ -21,6 +21,11 @@
   int	x;
   int	y;
   } Point;*/
+
+# define LEFT 3
+# define RIGHT 4
+# define UP 5
+# define DOWN 6
 
 typedef std::pair<int, int> Point;
 

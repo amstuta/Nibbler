@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:39:38 2015 arthur
-// Last update Mon Mar 30 17:01:48 2015 Lauranne Bruno
+// Last update Tue Mar 31 14:46:59 2015 Lauranne Bruno
 //
 
 #ifndef GUINDK_HPP_
@@ -20,6 +20,7 @@ private:
   int	win_x;
   int	win_y;
   WINDOW *window;
+  WINDOW *score;
   std::vector<Point *> *snk;
 
 public:

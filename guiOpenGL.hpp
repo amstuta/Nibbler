@@ -5,7 +5,7 @@
 // Login   <bruno_a@epitech.net>
 // 
 // Started on  Mon Mar 30 10:38:46 2015 Lauranne Bruno
-// Last update Mon Mar 30 17:04:31 2015 Lauranne Bruno
+// Last update Wed Apr  1 15:28:40 2015 Lauranne Bruno
 //
 
 #ifndef GUIOPENGL_HPP_
@@ -15,6 +15,7 @@
 #include "IGui.hpp"
 
 # define BOX 20
+# define decal(a) (((a) % 2) == 0 ? (0.5) : (0))
 
 class GuiOpenGL : public IGui
 {
@@ -23,6 +24,8 @@ private:
   int		y;
   double	x_size;
   double	y_size;
+  double	x_decal;
+  double	y_decal;
   SDL_Surface	*window;
   std::vector<Point *> *snk;
 

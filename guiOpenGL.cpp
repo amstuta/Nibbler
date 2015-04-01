@@ -5,7 +5,7 @@
 // Login   <bruno_a@epitech.net>
 // 
 // Started on  Mon Mar 30 10:41:36 2015 Lauranne Bruno
-// Last update Mon Mar 30 17:04:15 2015 Lauranne Bruno
+// Last update Wed Apr  1 16:18:10 2015 Lauranne Bruno
 //
 
 #include <stdlib.h>
@@ -27,14 +27,16 @@ GuiOpenGL::~GuiOpenGL()
 void	GuiOpenGL::initGui(int x, int y, std::vector<Point *> *snake)
 {
   this->snk = snake;
-  x = x + 1;
-  y = y + 1;
+  this->x_decal = decal(x);
+  this->y_decal = decal(y);
+  // (this->x_decal % 2 == 0) ? (0.0) : (0.5);
   this->x_size = 2.0 / x;
   this->y_size = 2.0 / y;
   this->x = x;
   this->y = y;
   SDL_Init(SDL_INIT_VIDEO);
   this->window = SDL_SetVideoMode(x * BOX, y * BOX, 32, SDL_OPENGL);
+  glColor3ub(100 + rand() % 155, rand() % 255, rand() % 255);
   glPointSize(BOX - 1);
   glClear(GL_COLOR_BUFFER_BIT);
 }
@@ -51,11 +53,14 @@ int	GuiOpenGL::rcv_event()
       if (event.key.keysym.sym == SDLK_ESCAPE)
 	return 2;
       if (event.key.keysym.sym == SDLK_LEFT)
-	return -1;
+	return LEFT;
       if (event.key.keysym.sym == SDLK_RIGHT)
-	return 1;
+	return RIGHT;
+      if (event.key.keysym.sym == SDLK_UP)
+	return UP;
+      if (event.key.keysym.sym == SDLK_DOWN)
+	return DOWN;
     }
-  // fenetre fermée => return 2
   return (0);
 }
 
@@ -69,18 +74,27 @@ void	GuiOpenGL::update()
 {
   glClear(GL_COLOR_BUFFER_BIT);
   glBegin(GL_POINTS);
-  glColor3ub(100 + rand() % 155, rand() % 255, rand() % 255);
+  // glColor3ub(100 + rand() % 155, rand() % 255, rand() % 255);
   for (std::vector<Point*>::const_iterator it = snk->begin();
        it != snk->end(); ++it)
     {
-      glVertex2d(-this->x / 2 * this->x_size + this->x_size * (*it)->first,
-		 this->y / 2 * this->y_size - this->y_size * (*it)->second);
+      glVertex2d(- this->x / 2 * this->x_size + this->x_size * (((*it)->first) + this->x_decal),
+		 this->y / 2 * this->y_size - this->y_size * (((*it)->second) + this->y_decal));
     }
   glEnd();
 }
 
-void	GuiOpenGL::dispFruit(__attribute__((unused))std::map<Point, Fruit> &test)
-{}
+void	GuiOpenGL::dispFruit(std::map<Point, Fruit> &fruits)
+{
+  glBegin(GL_POINTS);
+  for (std::map<Point, Fruit>::iterator it = fruits.begin();
+       it != fruits.end(); it++)
+    {
+      glVertex2d(- this->x / 2 * this->x_size + this->x_size * (((*it).first.first) + this->x_decal),
+		 this->y / 2 * this->y_size - this->y_size * (((*it).first.second) + this->y_decal));
+    }
+  glEnd();
+}
 
 void	GuiOpenGL::showScore(__attribute__((unused))int score)
 {}

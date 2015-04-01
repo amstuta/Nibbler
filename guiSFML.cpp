@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:55:33 2015 arthur
-// Last update Mon Mar 30 15:10:35 2015 raphael elkaim
+// Last update Wed Apr  1 14:39:05 2015 Lauranne Bruno
 //
 
 #include <SFML/Graphics.hpp>
@@ -49,9 +49,13 @@ int GuiSFML::rcv_event()
       if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Escape))
 	return 2;
       if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Left))
-	return -1;
+	return LEFT;
       if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Right))
-	return 1;
+	return RIGHT;
+      if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Down))
+	return DOWN;
+      if ((Event.Type == sf::Event::KeyPressed) && (Event.Key.Code == sf::Key::Up))
+	return UP;
     }
   return 0;
 }

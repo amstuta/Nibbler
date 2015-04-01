@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 17:57:22 2015 arthur
-// Last update Mon Mar 30 13:45:04 2015 raphael elkaim
+// Last update Wed Apr  1 14:55:35 2015 Lauranne Bruno
 //
 
 #include <iostream>
@@ -83,8 +83,26 @@ int	Snake::move()
 
 void	Snake::turn(int value)
 {
-  speedX = (speedX == 0) * value;
-  speedY = (speedY == 0) * value;
+  if (value == DOWN && speedY != -1)
+    {
+      speedX = 0;
+      speedY = 1;
+    }
+  if (value == LEFT && speedX != 1)
+    {
+      speedX = -1;
+      speedY = 0;
+    }
+  if (value == RIGHT && speedX != -1)
+    {
+      speedX = 1;
+      speedY = 0;
+    }
+  if (value == UP && speedY != 1)
+    {
+      speedX = 0;
+      speedY = -1;
+    }
 }
 
 void	Snake::moveEat()
