@@ -1,13 +1,3 @@
-//
-// guiSDL.hpp for guiSDL in /home/amstuta/rendu/cpp_nibbler
-//
-// Made by arthur
-// Login   <amstuta@epitech.net>
-//
-// Started on  Tue Mar 17 18:48:25 2015 arthur
-// Last update Mon Mar 30 15:04:32 2015 raphael elkaim
-//
-
 #ifndef GUISFML_HPP_
 #define GUISFML_HPP_
 
@@ -34,6 +24,16 @@ public:
   void	update();
   void	dispFruit(std::map<Point, Fruit> &);
   void	showScore(int);
+
+  class SfmlError : public std::exception
+  {
+  private:
+    const char *msg;
+  public:
+    SfmlError(const char *);
+    virtual ~SfmlError() throw();
+    virtual const char *what() throw ();
+  };
 };
 
 #endif

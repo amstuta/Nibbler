@@ -6,10 +6,10 @@ CPPFLAGS= -rdynamic -fPIC -Wall -Wextra -Werror
 LDLFLAGS= -ldl
 
 NAME_E	= nibbler
-NAME_L1	= libNDK.so
+NAME_L1	= lib_nibbler_NDK.so
 NAME_L2 = libQt.so
-NAME_L3	= libSFML.so
-NAME_L4 = libOpenGL.so
+NAME_L3	= lib_nibbler_sfml.so
+NAME_L4 = lib_nibbler_openGL.so
 
 SRCS_E	= main.cpp \
 	  loader.cpp \
@@ -18,6 +18,7 @@ SRCS_E	= main.cpp \
 	  coord.cpp \
 	  fruitgen.cpp \
 	  fruit.cpp
+
 SRCS_L1	= guiNDK.cpp
 SRCS_L2 = guiQt.cpp
 SRCS_L3	= guiSFML.cpp

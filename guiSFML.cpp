@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 18:55:33 2015 arthur
-// Last update Wed Apr  1 14:39:05 2015 Lauranne Bruno
+// Last update Wed Apr  1 16:25:25 2015 Lauranne Bruno
 //
 
 #include <SFML/Graphics.hpp>
@@ -33,9 +33,18 @@ void GuiSFML::initGui(int x, int y, std::vector<Point *> *plat)
   xs = x;
   ys = y;
   window = new sf::RenderWindow(sf::VideoMode((x + 2)* 20, (y + 2)* 20, 32), "Nibbler", sf::Style::Close);
-  borderImage.LoadFromFile("./media/border.png");
-  grassImage.LoadFromFile("./media/grass.png");
-  fruitImage.LoadFromFile("./media/Mushroom.png");
+try
+  {
+    if (!borderImage.LoadFromFile("./media/border.png") ||
+	!grassImage.LoadFromFile("./media/grass.png") ||
+	!fruitImage.LoadFromFile("./media/Mushroom.png"))
+      throw GuiSFML::SfmlError("media failed to load");
+  }
+ catch (GuiSFML::SfmlError e)
+   {
+     std::cerr << "sfmlError:" << e.what() << std::endl;
+     std::exit(1);
+   }
 }
 
 int GuiSFML::rcv_event()
@@ -74,6 +83,7 @@ void GuiSFML::showScore(int sc)
 void GuiSFML::dispFruit(std::map<Point, Fruit> &fruits)
 {
   sf::Sprite fruit;
+
   fruit.SetImage(fruitImage);
   for (std::map<Point, Fruit>::iterator it= fruits.begin();it != fruits.end(); it++)
     {
@@ -89,8 +99,10 @@ void GuiSFML::update()
   sf::Shape snakou = sf::Shape::Rectangle(20, 0, 0, 20, sf::Color(255, 255, 128, 128));
   sf::Sprite border;
   sf::Sprite grass;
+
   border.SetImage(borderImage);
   grass.SetImage(grassImage);
+
   for (int i(0); i < ys + 2; i++)
     {
       border.SetPosition(0, i * 20);
@@ -98,6 +110,7 @@ void GuiSFML::update()
       border.SetPosition((xs + 1) * 20, i * 20);
       window->Draw(border);
     }
+
   for (int i(0); i < xs + 2; i++)
     {
       border.SetPosition( i * 20, 0);
@@ -105,6 +118,7 @@ void GuiSFML::update()
       border.SetPosition(i * 20, (ys + 1) * 20);
       window->Draw(border);
     }
+
   for (int i(1);i < ys + 1;i++)
     {
       for (int j(1);j < xs + 1;j++)
@@ -113,6 +127,7 @@ void GuiSFML::update()
 	  window->Draw(grass);
 	}
     }
+
   for (unsigned int i(0); i < snak->size(); i++)
     {
       if (!i)
@@ -134,6 +149,20 @@ void GuiSFML::refresh()
 {
   window->Display();
   window->Clear();
+}
+
+GuiSFML::SfmlError::SfmlError(const char *_msg)
+{
+  msg = _msg;
+}
+
+GuiSFML::SfmlError::~SfmlError() throw()
+{
+}
+
+const char *GuiSFML::SfmlError::what() throw()
+{
+  return msg;
 }
   
 extern "C"
