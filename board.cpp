@@ -1,13 +1,3 @@
-//
-// board.cpp for board in /home/elkaim_r/projects/cpp/cpp_nibbler
-// 
-// Made by raphael elkaim
-// Login   <elkaim_r@epitech.net>
-// 
-// Started on  Mon Mar 23 14:36:37 2015 raphael elkaim
-// Last update Mon Mar 30 15:56:02 2015 raphael elkaim
-//
-
 #include <iostream>
 #include <algorithm>
 #include <unistd.h>
@@ -49,7 +39,7 @@ int	Board::launch()
       gui->dispFruit(Gene.getFruit());
       gui->showScore(score);
       gui->refresh();
-      usleep(100000 - score * 10000);
+      usleep(60000);
     }
   return 0;
 }
