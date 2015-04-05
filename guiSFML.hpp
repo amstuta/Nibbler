@@ -1,3 +1,13 @@
+//
+// guiSFML.hpp for nibbler in /home/elkaim_r/projects/cpp/cpp_nibbler
+// 
+// Made by elkaim raphael
+// Login   <elkaim_r@epitech.net>
+// 
+// Started on  Sun Apr  5 18:14:14 2015 elkaim raphael
+// Last update Sun Apr  5 18:14:15 2015 elkaim raphael
+//
+
 #ifndef GUISFML_HPP_
 #define GUISFML_HPP_
 

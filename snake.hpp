@@ -5,7 +5,7 @@
 // Login   <amstuta@epitech.net>
 //
 // Started on  Tue Mar 17 17:54:19 2015 arthur
-// Last update Tue Mar 31 21:57:58 2015 Lauranne Bruno
+// Last update Fri Apr  3 15:07:36 2015 elkaim raphael
 //
 
 #ifndef SNAKE_HPP_
@@ -15,12 +15,6 @@
 #include <map>
 #include <vector>
 #include "fruit.hpp"
-
-/*typedef struct
-{
-  int	x;
-  int	y;
-  } Point;*/
 
 # define LEFT 3
 # define RIGHT 4
@@ -41,10 +35,8 @@ public:
   ~Snake();
 
   void	addPoint(int x, int y);
-  void	printPoints() const;
   int	move();
   void	turn(int);
-  void	moveEat();
   std::vector<Point*> *getSnake();
 };
 

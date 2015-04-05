@@ -1,3 +1,14 @@
+//
+// board.cpp for nibbler in /home/elkaim_r/projects/cpp/cpp_nibbler
+// 
+// Made by elkaim raphael
+// Login   <elkaim_r@epitech.net>
+// 
+// Started on  Sun Apr  5 18:07:55 2015 elkaim raphael
+// Last update Sun Apr  5 18:07:56 2015 elkaim raphael
+//
+
+
 #include <iostream>
 #include <algorithm>
 #include <unistd.h>
@@ -32,7 +43,10 @@ int	Board::launch()
       if (eve != 0)
       	ken.turn(eve);
       if ((ret = ken.move()) == 1)
-	break ;
+	{
+	  std::cout << "GAME OVER!" << std::endl;
+	  break ;
+	}
       score += (ret > 0);
       Gene.popFruit();
       gui->update();
@@ -41,5 +55,6 @@ int	Board::launch()
       gui->refresh();
       usleep(60000);
     }
+  std::cout << "score achieved this game: " << score << "!" << std::endl;
   return 0;
 }

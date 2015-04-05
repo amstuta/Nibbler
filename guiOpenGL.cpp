@@ -5,7 +5,7 @@
 // Login   <bruno_a@epitech.net>
 // 
 // Started on  Mon Mar 30 10:41:36 2015 Lauranne Bruno
-// Last update Wed Apr  1 16:18:10 2015 Lauranne Bruno
+// Last update Sun Apr  5 18:11:09 2015 elkaim raphael
 //
 
 #include <stdlib.h>
@@ -29,7 +29,6 @@ void	GuiOpenGL::initGui(int x, int y, std::vector<Point *> *snake)
   this->snk = snake;
   this->x_decal = decal(x);
   this->y_decal = decal(y);
-  // (this->x_decal % 2 == 0) ? (0.0) : (0.5);
   this->x_size = 2.0 / x;
   this->y_size = 2.0 / y;
   this->x = x;
@@ -74,7 +73,6 @@ void	GuiOpenGL::update()
 {
   glClear(GL_COLOR_BUFFER_BIT);
   glBegin(GL_POINTS);
-  // glColor3ub(100 + rand() % 155, rand() % 255, rand() % 255);
   for (std::vector<Point*>::const_iterator it = snk->begin();
        it != snk->end(); ++it)
     {

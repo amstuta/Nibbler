@@ -5,7 +5,7 @@
 // Login   <elkaim_r@epitech.net>
 // 
 // Started on  Wed Mar 25 12:13:24 2015 raphael elkaim
-// Last update Wed Mar 25 14:26:31 2015 raphael elkaim
+// Last update Sun Apr  5 17:59:55 2015 elkaim raphael
 //
 
 #include <iostream>
@@ -19,6 +19,10 @@ Coord::Coord(char *xa, char *ya)
   std::istringstream y_val((std::string(ya)));
   x_val >> x;
   y_val >> y;
+  if (x > 90)
+    x = 90;
+  if (y > 50)
+    y = 50;
 }
 
 Coord::~Coord()

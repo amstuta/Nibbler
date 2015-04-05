@@ -30,7 +30,7 @@ IGui	*Loader::getGui()
 
   creator = reinterpret_cast<IGui* (*)()>(dlsym(handler, "create_gui"));
   if (creator == NULL)
-    return NULL;
+    std::exit(0);
   obj = creator();
 
   return obj;
